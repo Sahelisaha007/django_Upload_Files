@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+
+    </title>
+    <!-- style css -->
+    <script src="https://ajax.googleapis.come/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="../static/css/main.css" type="text/css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="inputParameters">
+        <h1> Input Parameters </h1>
+    </div>
+    <div class="main">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div id="platformSelect">
+                <h2 class="subheading"> Platform: </h2>
+                <select class='option' name="platform">
+                    <option disabled="disabled" selected="selecetd">--Choose Platform</option>
+                    <option>R750</option>
+                    <option>R650</option>
+                    <option>R6520</option>
+                    <option>R7520</option>
+                </select>
+            </div>
+            <div id="intermediateheadings">
+                <h2 class="centerheadings"> Upload Input Source Files </h2>
+            </div>
+            <div id="uploadsection">
+                <div id="first-uploads">
+                    <h2 class="subheading1"> UPLOAD PDL: </h2>
+                    <div class="file-input">
+                        <input name="pdlfile" type="file" id="file" class="file">
+                        <label for="file">Select file</label>
+                    </div>
+                    <h2 class="subheading1"> UPLOAD SPM: </h2>
+                    <div class="file-input">
+                        <input type="file" id="file" class="file">
+                        <label for="file">Select file</label>
+                    </div>
+                    <h2 class="subheading1"> UPLOAD PPCM: </h2>
+                    <div class="file-input">
+                        <input type="file" id="file" class="file">
+                        <label for="file">Select file</label>
+                    </div>
+                </div>
+                <div id="second-uploads">
+                    <h2 class="subheading2"> UPLOAD CPU: </h2>
+                    <div class="file-input">
+                        <input type="file" id="file" class="file">
+                        <label for="file">Select file</label>
+                    </div>
+                    <h2 class="subheading2"> UPLOAD NUDDS: </h2>
+                    <div class="file-input">
+                        <input type="file" id="file" class="file">
+                        <label for="file">Select file</label>
+                    </div>
+                    <h2 class="subheading2"> UPLOAD Memory: </h2>
+                    <div class="file-input">
+                        <input type="file" id="file" class="file">
+                        <label for="file">Select file</label>
+                    </div>
+                </div>
+            </div>
+            <div id="intermediateheadings">
+                <h2 class="centerheadings"> Select Other Inputs </h2>
+            </div>
+            <div id="otherinputs">
+                <h2 class="subheading2"> SPM METHOD SELECTION: </h2>
+                <div id="radiobutton">
+                    <label class="radio">
+                        <input class="radio-one" type="radio" checked="checked" name="spm_slot_order" value="spm_wo_sp"
+                            id="spm_wo_sp">
+                        <span class="checkmark"></span>
+                        Without Following Priority Rules
+                    </label>
+                    <label class="radio">
+                        <input class="radio-two" type="radio" name="spm_slot_order" value="spm_w_sp" id="spm_w_sp">
+                        <span class="checkmark"></span>
+                        Following Priority Rules
+                    </label>
+                </div>
+                <h2 class="subheading2"> CONFIG SIZE: </h2>
+                <div id="radiobutton">
+                    <label class="radio">
+                        <input class="radio-one" type="radio" checked="checked" name="config_size"
+                            value="config_optimal" id="config_optimal">
+                        <span class="checkmark"></span>
+                        Optimal Configs
+                    </label>
+                    <label class="radio">
+                        <input class="radio-two" type="radio" name="config_size" value="config_max" id="config_max">
+                        <span class="checkmark"></span>
+                        Max Configs
+                    </label>
+                </div>
+                <div id="platformSelect">
+                    <h2 class="subheading2"> SELECT UIP TEMPLATE: </h2>
+                    <select class='option' name="platform">
+                        <option disabled="disabled" selected="selecetd">--Choose UIP Template</option>
+                        <option>All Chassis X Controller Combination</option>
+                        <option>All Chassis X NIC Combination</option>
+                        <option>Temaplate 3</option>
+                        <option>Temaplate 4</option>
+                    </select>
+                </div>
+            </div>
+            <div id="intermediateheadings">
+                <h2 class="centerheadings"> Scoring Weights </h2>
+            </div>
+            <div id="scoringinputs">
+                <div id="scoring-factor1">
+                    <h2 class="subheading2"> AS SOLD WEIGHT: </h2>
+                    <div class="slidecontainer1">
+                        <input type="range" min="0" max="100" value="0" id="myRange1" class="slider1">
+                        <h2 class="subheading2"> WEIGHT VALUE: <span id="value1"> </h2>
+                    </div>
+                    <div id="first-uploads">
+                        <h2 class="subheading1"> AS SOLD WTS: </h2>
+                        <div class="file-input1">
+                            <input type="file" id="file1" class="file1" disabled>
+                            <label for="file1" id="file-input1">Select file</label>
+                        </div>
+                    </div>
+                </div>
+                <div id="sample_download">
+                    <h2 class="subheading3"> DOWNLOAD SAMPLE SCORING INPUT SHEET </h2>
+                    <div id="adiv">
+                        <a href="../static/files/sample_scoring_weights_file.xlsx" download>
+                            DOWNLOAD
+                        </a>
+                    </div>
+
+
+                </div>
+                <div id="scoring-factor2">
+                    <h2 class="subheading2"> NEW COMPONENTS WEIGHT: </h2>
+                    <div class="slidecontainer2">
+                        <input type="range" min="0" max="100" value="0" id="myRange2" class="slider2">
+                        <h2 class="subheading2"> WEIGHT VALUE: <span id="value2"> </h2>
+                    </div>
+                    <div id="first-uploads">
+                        <h2 class="subheading1"> NEW COMP WTS: </h2>
+                        <div class="file-input2">
+                            <input type="file" id="file2" class="file2" disabled>
+                            <label for="file2" id="file-input2">Select file</label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="intermediateheadings">
+                <h2 class="centerheadings"> Submit & Results </h2>
+            </div>
+            <div id="resultssection">
+                <div id="submitbuttondiv">
+                    <button type="submit">
+                        RUN Q
+                    </button>
+                </div>
+                <div id="sample_download1">
+                    <div id="adiv1">
+                        <a href="../static/files/sample_scoring_weights_file.xlsx" download>
+                            CONFIGS OUTPUT
+                        </a>
+                    </div>
+                </div>
+                <div id="sample_download2">
+                    <div id="adiv2">
+                        <a href="../static/files/sample_scoring_weights_file.xlsx" download>
+                            SUPPORT FILE
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+<script src="../static/js/main.js"></script>
+
+</html>
